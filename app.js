@@ -1,26 +1,26 @@
 const itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
 document.getElementById("add").addEventListener("click", () => {
-  const item = document.getElementById("item")
-  createItem(item)
-})
+  const item = document.getElementById("item");
+  createItem(item);
+});
 
 document.getElementById('item').addEventListener('keypress', (e) => {
     if(e.key === 'Enter'){
-        const item = document.getElementById('item')
-        createItem(item)
+        const item = document.getElementById('item');
+        createItem(item);
     }
 })
 
 function displayDate() {
-    let date = new Date()
+    let date = new Date();
     date = date.toString().split(' ')
     date = date[1] + ' ' + date[2] + ' ' + date[3]
-    document.getElementById('date').innerHTML = date
+    document.getElementById('date').innerHTML = date;
 }
 
 function displayItems() {
-    let items = ''
+    let items = '';
     for (let i = 0; i < itemsArray.length; i++){
         items += 
         `<div class='item'>
@@ -40,10 +40,12 @@ function displayItems() {
     document.getElementById('todos').innerHTML = items
     activateDeleteListeners();
     activateEditListeners();
+    activateSaveListeners();
+    activateCancelListeners();
 }
 
 function activateDeleteListeners() {
-    let deleteBtn = document.querySelectorAll('.deleteBtn')
+    let deleteBtn = document.querySelectorAll('.deleteBtn');
     deleteBtn.forEach((dB, i) => {
         dB.addEventListener('click', () => {
             deleteItem(i)
@@ -52,13 +54,36 @@ function activateDeleteListeners() {
 }
 
 function activateEditListeners() {
-    const editBtn = document.querySelectorAll('.editBtn')
-    const updateController = document.querySelectorAll('.update-controller')
-    const inputs = document.querySelectorAll('.input-controller textarea')
+    const editBtn = document.querySelectorAll('.editBtn');
+    const updateController = document.querySelectorAll('.update-controller');
+    const inputs = document.querySelectorAll('.input-controller textarea');
     editBtn.forEach((eB, i) => {
         eB.addEventListener('click', () => {
             updateController[i].style.display = 'block'
             inputs[i].disabled = false
+        })
+    })
+}
+
+function activateSaveListeners(){
+    const saveBtn = document.querySelectorAll('.saveBtn');
+    const inputs = document.querySelectorAll('.input-controller textarea');
+    saveBtn.forEach((sb, i) => {
+        sb.addEventListener('click', () => {
+            updateItem(inputs[i].value, i)
+        })
+    })
+}
+
+function activateCancelListeners(){
+    const cancelBtn = document.querySelectorAll('.cancelBtn');
+    const updateController = document.querySelectorAll('.update-controller');
+    const inputs = document.querySelectorAll('.input-controller textarea');
+    cancelBtn.forEach((cB, i) => {
+        cB.addEventListener('click', () => {
+            updateController[i].style.display = 'none';
+            inputs[i].disabled = true;
+            inputs[i].style.border = 'none';
         })
     })
 }
