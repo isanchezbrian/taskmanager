@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap');
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition-duration: 300ms;
+}
+
+body {
+    min-height: 100vh;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+}
+header,
+main,
+footer {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+}
+
+.plusIcon {
+    font-size: 1.5rem;
+}
+
+.plusIcon:hover {
+    color: teal;
+    cursor: pointer;
+}
+
+#addTodo form {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid teal;
+}
+
+#addTodo input {
+    background: transparent;
+    outline: none;
+    padding: 12px;
+    color: white;
+    flex: 1;
+    border: none;
+}
+
+#addTodo button {
+    background: teal;
+    border: none;
+    outline: none;
+    padding: 0 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+#addTodo button:hover {
+    background: transparent;
+    color: teal;
+}
+
+#todos {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
