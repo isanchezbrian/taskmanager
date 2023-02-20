@@ -39,6 +39,7 @@ function displayItems() {
     }
     document.getElementById('todos').innerHTML = items
     activateDeleteListeners();
+    activateEditListeners();
 }
 
 function activateDeleteListeners() {
@@ -46,6 +47,18 @@ function activateDeleteListeners() {
     deleteBtn.forEach((dB, i) => {
         dB.addEventListener('click', () => {
             deleteItem(i)
+        })
+    })
+}
+
+function activateEditListeners() {
+    const editBtn = document.querySelectorAll('.editBtn')
+    const updateController = document.querySelectorAll('.update-controller')
+    const inputs = document.querySelectorAll('.input-controller textarea')
+    editBtn.forEach((eB, i) => {
+        eB.addEventListener('click', () => {
+            updateController[i].style.display = 'block'
+            inputs[i].disabled = false
         })
     })
 }
@@ -58,6 +71,11 @@ function createItem(item){
 
 function deleteItem(i){
     itemsArray.splice(i, 1)
+    localStorage.setItem('items', JSON.stringify(itemsArray))
+    location.reload()
+}
+function updateItem(text, i) {
+    itemsArray[i] = text
     localStorage.setItem('items', JSON.stringify(itemsArray))
     location.reload()
 }
