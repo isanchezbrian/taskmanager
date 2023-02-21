@@ -6,7 +6,7 @@ document.getElementById("add").addEventListener("click", () => {
 });
 
 document.getElementById('item').addEventListener('keypress', (e) => {
-    if(e.key === 'Enter'){
+    if(e.key === 'Add'){
         const item = document.getElementById('item');
         createItem(item);
     }

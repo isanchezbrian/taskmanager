@@ -45,6 +45,10 @@ main {
     flex: 1;
 }
 
+#date {
+    align-items: center;
+}
+
 .plusIcon {
     font-size: 1.5rem;
 }
@@ -92,15 +96,15 @@ main {
 
 .item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid teal; */
 }
 
 .item p {
     flex: 1;
 }
 
-.input-controller,
-.update-controller {
+.input-controller {
     display: flex;
     align-items: center;
 }
@@ -109,20 +113,44 @@ main {
     background: transparent;
     padding: 12px;
     color: white;
-    flex: 1;
-    display: flex;
-    align-items: stretch;
-    border: 1px solid teal;
+    /* flex: 1; */
+    /* display: flex; */
+    /* align-items: stretch; */
+    /* border: 1px solid teal; */
     width: 100%;
+    resize: none;
+    border: none;
 }
 
 .edit-controller {
     display: flex;
-    gap: 5px;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.deleteBtn {
+    color: coral;
+}
+
+.editBtn {
+    color: cyan;
 }
 
 .update-controller {
-    display: none;
+    display: flex;
+    align-items: center;
+}
+
+.saveBtn {
+    background-color: yellow;
+    color: black;
+}
+
+.cancelBtn {
+    background-color: black;
+    color: white;
 }
 
 footer {
