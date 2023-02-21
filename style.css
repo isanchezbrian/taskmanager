@@ -89,3 +89,44 @@ main {
     flex-direction: column;
     gap: 4px;
 }
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item p {
+    flex: 1;
+}
+
+.input-controller,
+.update-controller {
+    display: flex;
+    align-items: center;
+}
+
+.input-controller textarea {
+    background: transparent;
+    padding: 12px;
+    color: white;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    border: 1px solid teal;
+    width: 100%;
+}
+
+.edit-controller {
+    display: flex;
+    gap: 5px;
+}
+
+.update-controller {
+    display: none;
+}
+
+footer {
+    display: grid;
+    place-items: center;
+}
+
