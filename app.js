@@ -89,20 +89,20 @@ function activateCancelListeners(){
 }
 
 function createItem(item){
-    itemsArray.push(item.value)
-    localStorage.setItem('items', JSON.stringify(itemsArray))
+    itemsArray.push(item.value);
+    localStorage.setItem('items', JSON.stringify(itemsArray));
     location.reload();
 }
 
 function deleteItem(i){
     itemsArray.splice(i, 1)
-    localStorage.setItem('items', JSON.stringify(itemsArray))
-    location.reload()
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+    location.reload();
 }
 function updateItem(text, i) {
-    itemsArray[i] = text
-    localStorage.setItem('items', JSON.stringify(itemsArray))
-    location.reload()
+    itemsArray[i] = text;
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+    location.reload();
 }
 
 
